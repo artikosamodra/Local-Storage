@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage - Logic Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Login -->
+    <div id="loginRoot">
+        <h1 id="headLogin" class="title-h"></h1>
+        <div class="area" id="onLogin">
+            <input type="text" class="input-style" id="username" placeholder="username">
+            <input type="password" class="input-style" id="password" placeholder="password">
+            <div class="button-area">
+                <button onclick="onLogin()" class="button" id="loginButton">Login</button>
+                <button onclick="" class="button" id="SignUpButton">SignUp</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="menuRoot">
+        <h1 id="headAdmin" class="title-h"></h1>
+        <h1 id="headGuest" class="title-h"></h1>
+        <div class="area" id="onMenu">
+            <div class="button-area">
+                <button onclick="" class="button" id="reposButton">Repos</button>
+                <button onclick="" class="button" id="logoutButton">Logout</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="style.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
