@@ -1,39 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LocalStorage - Logic Login</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <!-- Login -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Login Menu -->
     <div id="loginRoot">
-        <h1 id="headLogin" class="title-h"></h1>
-        <div class="area" id="onLogin">
-            <input type="text" class="input-style" id="username" placeholder="username">
-            <input type="password" class="input-style" id="password" placeholder="password">
-            <div class="button-area">
-                <button onclick="onLogin()" class="button" id="loginButton">Login</button>
-                <button onclick="" class="button" id="SignUpButton">SignUp</button>
-            </div>
+      <h1 id="headLogin" class="title-h"></h1>
+      <div class="area" id="onLogin">
+        <input
+          type="text"
+          class="input-style"
+          id="username"
+          placeholder="username"
+        />
+        <input
+          type="password"
+          class="input-style"
+          id="password"
+          placeholder="password"
+        />
+        <div class="button-area">
+          <button onclick="onLogin()" class="button" id="loginButton">
+            Login
+          </button>
+          <button onclick="onSignUp()" class="button" id="SignUpButton">
+            SignUp
+          </button>
         </div>
+      </div>
     </div>
 
+    <!-- Main Menu -->
     <div id="menuRoot">
-        <h1 id="headAdmin" class="title-h"></h1>
-        <h1 id="headGuest" class="title-h"></h1>
-        <div class="area" id="onMenu">
-            <div class="button-area">
-                <button onclick="" class="button" id="reposButton">Repos</button>
-                <button onclick="" class="button" id="logoutButton">Logout</button>
-            </div>
+      <h1 id="headAdmin" class="title-h"></h1>
+      <h1 id="headGuest" class="title-h"></h1>
+      <div class="area" id="onMenu">
+        <div class="button-area">
+          <button onclick="" class="button" id="reposButton">Repos</button>
+          <button onclick="onLogout()" class="button" id="logoutButton">
+            Logout
+          </button>
         </div>
+      </div>
     </div>
-    
+
+    <!-- Registrasi Menu -->
+    <div id="regRoot">
+      <h1 id="headReg" class="title-h"></h1>
+      <div class="area" id="onReg">
+        <input
+          type="text"
+          class="input-style"
+          id="usernameReg"
+          placeholder="username"
+          required
+        />
+        <input
+          type="text"
+          class="input-style"
+          id="firstNameReg"
+          placeholder="first name"
+          required
+        />
+        <input
+          type="text"
+          class="input-style"
+          id="lastNameReg"
+          placeholder="last name"
+          required
+        />
+        <input
+          type="email"
+          class="input-style"
+          id="emailReg"
+          placeholder="email"
+          required
+        />
+        <input
+          type="password"
+          class="input-style"
+          id="passwordReg"
+          placeholder="password"
+          required
+        />
+        <input
+          type="password"
+          class="input-style"
+          id="rePasswordReg"
+          placeholder="Re-enter password"
+          required
+        />
+        <div class="button-area">
+          <button onclick="onReg()" class="button" id="regButton">
+            Registrasi
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- JavaScript -->
     <script src="style.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

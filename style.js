@@ -1,7 +1,10 @@
 let headLogin = document.getElementById("headLogin");
 let headAdmin = document.getElementById("headAdmin");
 let headGuest = document.getElementById("headGuest");
+let headReg = document.getElementById("headReg");
 let loginRoot = document.getElementById("loginRoot");
+let menuRoot = document.getElementById("menuRoot");
+let regRoot = document.getElementById("regRoot");
 
 let headStyle = document.querySelectorAll(".title-h");
 let areaStyle = document.querySelectorAll(".area");
@@ -13,11 +16,13 @@ let btnStyle = document.querySelectorAll(".button");
 headLogin.textContent = "Ayo Login!";
 headAdmin.textContent = "Selamat datang Admin";
 headGuest.textContent = "Selamat datang Guest";
+headReg.textContent = "Ayo daftar dulu!";
 
 headAdmin.style.display = "none";
 headGuest.style.display = "none";
 loginRoot.style.display = "block";
 menuRoot.style.display = "none";
+regRoot.style.display = "none";
 
 
 //Styling with JS
@@ -30,7 +35,7 @@ headStyle.forEach((headS) => {
 
 areaStyle.forEach((areaS) => {
   Object.assign(areaS.style, {
-    // backgroundColor: "green",
+    // backgroundColor: "blue",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
