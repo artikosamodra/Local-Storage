@@ -12,10 +12,12 @@ let inputStyle = document.querySelectorAll(".input-style");
 let btnArea = document.querySelector(".button-area");
 let btnStyle = document.querySelectorAll(".button");
 
+let nameUser = username.value;
+
 //Head Title Page
 headLogin.textContent = "Ayo Login!";
 headAdmin.textContent = "Selamat datang Admin";
-headGuest.textContent = "Selamat datang Guest";
+headGuest.textContent = "Selamat datang User";
 headReg.textContent = "Ayo daftar dulu!";
 
 headAdmin.style.display = "none";

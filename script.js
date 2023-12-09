@@ -13,7 +13,7 @@ function onLogin() {
   console.log(username.value);
   console.log(password.value);
   localStorage.setItem("username", username.value);
-  let userAccount = localStorage.getItem(username.value);
+  let userAccount = JSON.parse(localStorage.getItem(username.value));
 
   //temporary account
   if (username.value == "admin" && password.value == "123456") {
@@ -24,9 +24,9 @@ function onLogin() {
     loginRoot.style.display = "none";
     menuRoot.style.display = "block";
     headAdmin.style.display = "block";
-  } else if (userAccount && userAccount === password.value) {
-    alert("login sebagai guest");
-    localStorage.setItem("role", "guest");
+  } else if (userAccount && userAccount.password === password.value) {
+    alert("login sebagai user");
+    localStorage.setItem("role", "user");
 
     // Style Setting : Guest
     loginRoot.style.display = "none";
@@ -45,7 +45,9 @@ function onRepos() {
 }
 
 function onLogout() {
-  localStorage.clear();
+  //   localStorage.clear();
+  localStorage.removeItem("username");
+  localStorage.removeItem("role");
   location.reload();
 }
 
@@ -56,15 +58,12 @@ function onSignUp() {
 }
 
 function onReg() {
-  usernameReg.value;
-  firstNameReg.value;
-  lastNameReg.value;
-  emailReg.value;
+  //   usernameReg.value;
+  //   firstNameReg.value;
+  //   lastNameReg.value;
+  //   emailReg.value;
   passwordReg.value;
   rePasswordReg.value;
-
-  //data reg harus di setItem agar data tersimpan di local storage.
-  localStorage.setItem(usernameReg.value, passwordReg.value);
 
   if (
     !usernameReg.value ||
@@ -75,15 +74,22 @@ function onReg() {
     !rePasswordReg.value
   ) {
     alert("isi yang kosong");
+  } else if (localStorage.getItem(usernameReg.value)) {
+    alert("username telah digunakan");
   } else if (passwordReg.value !== rePasswordReg.value) {
     alert("Kata sandi tidak cocok!");
   } else {
     alert("Selamat anda berhasil mendaftar, Silahkan login");
-    localStorage.setItem("username", usernameReg.value);
-    localStorage.setItem("firstname", firstNameReg.value);
-    localStorage.setItem("lastname", lastNameReg.value);
-    localStorage.setItem("email", emailReg.value);
-    localStorage.setItem("password", passwordReg.value);
+    localStorage.setItem(
+      usernameReg.value,
+      JSON.stringify({
+        username: usernameReg.value,
+        firstname: firstNameReg.value,
+        lastname: lastNameReg.value,
+        email: emailReg.value,
+        password: passwordReg.value,
+      })
+    );
     location.reload();
   }
 }
@@ -101,5 +107,16 @@ if (localStorage.getItem("username")) {
   } else {
     loginRoot.style.display = "block";
     menuRoot.style.display = "none";
+  }
+}
+
+function onClear() {
+  let userRole = localStorage.getItem("role");
+
+  if (userRole == "admin") {
+    localStorage.clear();
+    alert("Semua data user berhasil dihapus");
+  } else {
+    alert("Maaf akses gagal, anda bukan admin");
   }
 }
