@@ -13,6 +13,7 @@ function onLogin() {
   console.log(username.value);
   console.log(password.value);
   localStorage.setItem("username", username.value);
+  let userAccount = localStorage.getItem(username.value);
 
   //temporary account
   if (username.value == "admin" && password.value == "123456") {
@@ -23,10 +24,7 @@ function onLogin() {
     loginRoot.style.display = "none";
     menuRoot.style.display = "block";
     headAdmin.style.display = "block";
-  } else if (
-    username.value === usernameReg.value &&
-    password.value === passwordReg.value
-  ) {
+  } else if (userAccount && userAccount === password.value) {
     alert("login sebagai guest");
     localStorage.setItem("role", "guest");
 
@@ -39,6 +37,11 @@ function onLogin() {
   } else {
     alert("account tidak ditemukan");
   }
+}
+
+function onRepos() {
+  let linkRepos = "https://github.com/artikosamodra/Local-Storage";
+  window.open(linkRepos, "_blank");
 }
 
 function onLogout() {
@@ -59,6 +62,9 @@ function onReg() {
   emailReg.value;
   passwordReg.value;
   rePasswordReg.value;
+
+  //data reg harus di setItem agar data tersimpan di local storage.
+  localStorage.setItem(usernameReg.value, passwordReg.value);
 
   if (
     !usernameReg.value ||
@@ -89,7 +95,7 @@ if (localStorage.getItem("username")) {
   if (localStorage.getItem("role") == "admin") {
     headAdmin.style.display = "block";
     headGuest.style.display = "none";
-  } else if (localStorage.getItem("role") == usernameReg) {
+  } else if (localStorage.getItem("role") == "guest") {
     headAdmin.style.display = "none";
     headGuest.style.display = "block";
   } else {
