@@ -31,6 +31,39 @@
             SignUp
           </button>
         </div>
+
+        <div class="text-area">
+          <p>
+            Ini adalah proyek login sederhana dengan localStorage. Gunakan dan
+            ubah sesuai kebutuhan Anda. Jangan lupa beri bintang pada
+            repositori. Terima kasih!
+          </p>
+
+          <p>
+            1. Pilih "SignUp" untuk melakukan Register Account. <br />
+            2. Isi Form dengan benar dan pilih "Register" <br />
+            3. Masukan "username" & "password" account anda. <br />
+            4. Jika berhasil, menu utama akan muncul.
+          </p>
+
+          <p>
+            *NOTE* <br />
+            - data account anda disimpan pada localstorage. <br />
+            - anda dapat register kembali dengan username lain. <br />
+            - account yang ter-REGIS secara lokal, tersimpan di localstorage.
+            <br />
+            - gunakan inspect elemen untuk melihat informasi data <br />
+            - hapus data account hanya bisa dilakukan oleh account admin.
+          </p>
+
+          <div class="box">
+            <p class="info-box">
+              LOGIN ADMIN. <br />
+              username : admin <br />
+              password : 123456
+            </p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -49,6 +82,12 @@
           <button onclick="onLogout()" class="button" id="logoutButton">
             Logout
           </button>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="info-box">
+          <div id="infoUser"></div>
         </div>
       </div>
     </div>
@@ -100,6 +139,7 @@
           required
         />
         <div class="button-area">
+          <button onclick="onBack()" class="button" id="regButton">Back</button>
           <button onclick="onReg()" class="button" id="regButton">
             Registrasi
           </button>
@@ -108,7 +148,7 @@
     </div>
 
     <!-- JavaScript -->
-    <script src="style.js"></script>
-    <script src="script.js"></script>
+    <script src="js/style.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>

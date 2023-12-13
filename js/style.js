@@ -9,8 +9,11 @@ let regRoot = document.getElementById("regRoot");
 let headStyle = document.querySelectorAll(".title-h");
 let areaStyle = document.querySelectorAll(".area");
 let inputStyle = document.querySelectorAll(".input-style");
-let btnArea = document.querySelector(".button-area");
+let btnArea = document.querySelectorAll(".button-area");
 let btnStyle = document.querySelectorAll(".button");
+let textArea = document.querySelectorAll(".text-area");
+let box = document.querySelectorAll(".box");
+let infoBox = document.querySelectorAll(".info-box");
 
 let nameUser = username.value;
 
@@ -26,23 +29,18 @@ loginRoot.style.display = "block";
 menuRoot.style.display = "none";
 regRoot.style.display = "none";
 
-
 //Styling with JS
 headStyle.forEach((headS) => {
-  Object.assign(headS.style, {
-    textAlign: "center",
-    color: "white",
-  });
+  headS.style.textAlign = "center";
+  headS.style.color = "White";
 });
 
 areaStyle.forEach((areaS) => {
   Object.assign(areaS.style, {
-    // backgroundColor: "blue",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    // padding: "0rem",
   });
 });
 
@@ -55,8 +53,8 @@ inputStyle.forEach((inputS) => {
   });
 });
 
-Object.assign(btnArea.style, {
-  margin: "1rem",
+btnArea.forEach((btnA) => {
+  btnA.style.margin = "1rem";
 });
 
 btnStyle.forEach((btnS) => {
@@ -64,5 +62,32 @@ btnStyle.forEach((btnS) => {
     width: "5.7rem",
     padding: "3px 3px",
     margin: "0 5px",
+  });
+});
+
+textArea.forEach((textA) => {
+  Object.assign(textA.style, {
+    width: "50%",
+    paddingTop: "3rem",
+    margin: "0 5px",
+    fontSize: "0.8rem",
+    fontWeight: "bold",
+    color: "white",
+  });
+});
+
+box.forEach((bx) => {
+  bx.style.textAlign = "center";
+});
+
+infoBox.forEach((infoB) => {
+  Object.assign(infoB.style, {
+    display: "inline-block",
+    textAlign: "left",
+    border: "3px solid white",
+    marginTop: "2rem",
+    padding: "1rem",
+    color: "white",
+    fontWeight: "bold",
   });
 });
