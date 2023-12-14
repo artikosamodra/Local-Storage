@@ -59,40 +59,61 @@ function onSignUp() {
 }
 
 function onReg() {
-  let usernameReg = document.getElementById("usernameReg");
-  let firstNameReg = document.getElementById("firstNameReg");
-  let lastNameReg = document.getElementById("lastNameReg");
-  let emailReg = document.getElementById("emailReg");
-  let passwordReg = document.getElementById("passwordReg");
-  let rePasswordReg = document.getElementById("rePasswordReg");
+  // error notif
+  const errorElement = document.getElementById("errorMessages");
+  let errorText = " ";
+  errorElement.textContent = errorText;
 
+  // value input regis
+  const usernameReg = document.getElementById("usernameReg").value;
+  let firstNameReg = document.getElementById("firstNameReg").value;
+  let lastNameReg = document.getElementById("lastNameReg").value;
+  const emailReg = document.getElementById("emailReg").value;
+  const passwordReg = document.getElementById("passwordReg").value;
+  const rePasswordReg = document.getElementById("rePasswordReg").value;
+
+  // validasi variable
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  // validasi input
   if (
-    !usernameReg.value ||
-    !firstNameReg.value ||
-    !lastNameReg.value ||
-    !emailReg.value ||
-    !passwordReg.value ||
-    !rePasswordReg.value
+    !usernameReg ||
+    !firstNameReg ||
+    !lastNameReg ||
+    !emailReg ||
+    !passwordReg ||
+    !rePasswordReg
   ) {
-    alert("isi yang kosong");
-  } else if (localStorage.getItem(usernameReg.value)) {
-    alert("username telah digunakan");
-  } else if (passwordReg.value !== rePasswordReg.value) {
-    alert("Kata sandi tidak cocok!");
+    errorText = "Semua harus di isi.";
+  } else if (usernameReg.length < 4 || usernameReg.length > 10) {
+    errorText = "Username harus terdiri dari 4-10 karakter.";
+  } else if (localStorage.getItem(usernameReg)) {
+    errorText = "Username sudah terdaftar";
+  } else if (!emailRegex.test(emailReg)) {
+    errorText = "Format email salah.";
+  } else if (passwordReg.length < 8) {
+    errorText = "Password harus terdiri dari minimal 8 karakter.";
+  } else if (passwordReg !== rePasswordReg) {
+    errorText = "Konfirmasi password tidak sesuai.";
   } else {
     alert("Selamat anda berhasil mendaftar, Silahkan login");
     localStorage.setItem(
-      usernameReg.value,
+      usernameReg,
       JSON.stringify({
-        username: usernameReg.value,
-        firstname: firstNameReg.value,
-        lastname: lastNameReg.value,
-        email: emailReg.value,
-        password: passwordReg.value,
+        username: usernameReg,
+        firstname: firstNameReg,
+        lastname: lastNameReg,
+        email: emailReg,
+        password: passwordReg,
       })
     );
     onBack();
+    return;
+    // tambahkan navigasi atau tindakan sesuai kebutuhan setelah registrasi sukses
   }
+
+  // menampilkan pesan error
+  errorElement.textContent = errorText;
 }
 
 function onBack() {

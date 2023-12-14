@@ -95,7 +95,7 @@
     <!-- Registrasi Menu -->
     <div id="regRoot">
       <h1 id="headReg" class="title-h"></h1>
-      <div class="area" id="onReg">
+      <form class="area" id="onReg">
         <input
           type="text"
           class="input-style"
@@ -107,44 +107,47 @@
           type="text"
           class="input-style"
           id="firstNameReg"
-          placeholder="first name"
-          required
+          placeholder="firstname"
         />
         <input
           type="text"
           class="input-style"
           id="lastNameReg"
-          placeholder="last name"
-          required
+          placeholder="lastname"
         />
         <input
           type="email"
           class="input-style"
           id="emailReg"
           placeholder="email"
-          required
         />
         <input
           type="password"
           class="input-style"
           id="passwordReg"
           placeholder="password"
-          required
         />
         <input
           type="password"
           class="input-style"
           id="rePasswordReg"
           placeholder="Re-enter password"
-          required
         />
+        <div id="errorMessages" class="error"></div>
         <div class="button-area">
-          <button onclick="onBack()" class="button" id="regButton">Back</button>
-          <button onclick="onReg()" class="button" id="regButton">
+          <button
+            type="button"
+            onclick="onBack()"
+            class="button"
+            id="backButton"
+          >
+            Back
+          </button>
+          <button type="button" onclick="onReg()" class="button" id="regButton">
             Registrasi
           </button>
         </div>
-      </div>
+      </form>
     </div>
 
     <!-- JavaScript -->
